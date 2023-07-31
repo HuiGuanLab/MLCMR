@@ -39,24 +39,14 @@ conda deactivate
 
 我们使用两种公开数据集: VATEX, MSR-VTT. 预训练提取的特征请放置在  `$HOME/VisualSearch/`.
 
-For Multi-30K, we have provided translation version (from Google Translate) of Task1 and Task2, respectively.  [Task1: Applied to translation tasks. Task2: Applied to captioning tasks.].
+我们已经在项目文件的 `VisualSearch/` 里准备好了所有所需训练文本文件
 
-In addition, we also provide MSCOCO dataset here, and corresponding performance below.  The validation and test set on Japanese from [STAIR Captions](https://stair-lab-cit.github.io/STAIR-captions-web/), and that on Chinese from [COCO-CN](https://github.com/li-xirong/coco-cn).
+对应的视频特征可通过下方获取
 
-Training set:
-
-	source(en) + translation(en2xx) + back-translation(en2xx2en)
-
-Validation set and test set:
-
-	target(xx) + translation(xx2en)
-
-| Dataset    | feature                                                      | caption                                                      |
-| ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| VATEX      | [vatex-i3d.tar.gz, pwd:p3p0](https://pan.baidu.com/s/1lg23K93lVwgdYs5qnTuMFg?pwd=p3p0) | [vatex_caption, pwd:oy27](https://www.aliyundrive.com/s/xDrzCDNEHWP) |
-| MSR-VTT-CN | [msrvtt10k-resnext101_resnet152.tar.gz, pwd:p3p0](https://pan.baidu.com/s/1lg23K93lVwgdYs5qnTuMFg?pwd=p3p0) | [cn_caption, pwd:oy27](https://www.aliyundrive.com/s/3sBNJqfTxcp) |
-| Multi-30K  | [multi30k-resnet152.tar.gz, pwd:5khe](https://pan.baidu.com/s/1AzTN6rFyabirACVkVEVKCQ) | [multi30k_caption, pwd:oy27](https://www.aliyundrive.com/s/zGEbQAvqHGy) |
-| MSCOCO     |                                                              | [mscoco_caption, pwd:13dc](https://www.aliyundrive.com/s/PxToUYryguz) |
+| Dataset    | feature                                                      |
+| ---------- | ------------------------------------------------------------ |
+| VATEX      | [vatex-i3d.tar.gz, pwd:p3p0](https://pan.baidu.com/s/1lg23K93lVwgdYs5qnTuMFg?pwd=p3p0) | 
+| MSR-VTT | [msrvtt10k-resnext101_resnet152.tar.gz, pwd:p3p0](https://pan.baidu.com/s/1lg23K93lVwgdYs5qnTuMFg?pwd=p3p0) |
 
 
 ```shell

@@ -203,7 +203,7 @@ conda activate mlcmr
 
 <table>
     <tr>
-        <th rowspan='2'>Dataset</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+        <th rowspan='2'>Dataset</th><th colspan='3'>Text-to-Video Retrieval</th> <th colspan='3'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
     </tr>
     <tr>
         <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> 

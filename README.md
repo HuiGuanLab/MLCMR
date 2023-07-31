@@ -6,8 +6,8 @@
 
 ## 内容列表
 
-- [环境](#environments)
-- [Required Data](#required-data)
+- [环境](#环境)
+- [数据准备](#数据准备)
 - [MLCMR on VATEX](#MLCMR-on-VATEX)
   - [Model Training and Evaluation](#model-training-and-evaluation)
   - [Evaluation using Provided Checkpoints](#Evaluation-using-Provided-Checkpoints)

@@ -44,7 +44,7 @@ conda deactivate
 
 我们使用两种公开数据集: VATEX, MSR-VTT. 预训练提取的特征请放置在  `$HOME/VisualSearch/`.
 
-我们已经在项目文件的 `VisualSearch` 里准备好了所有的训练文本文件
+我们已经在项目文件的 `VisualSearch` 里准备好了所需的文本文件
 
 对应的视频特征可通过下方获取
 
@@ -71,7 +71,7 @@ VisualSearch/VATEX/
 		xx.txt
 
 # 下载MSR-VTT数据[英语, 中文]
-VisualSearch/msrvtt/
+VisualSearch/msrvtt10K/
 	FeatureData/
 		resnext101-resnet152/
 			feature.bin
@@ -127,6 +127,7 @@ conda activate mlcmr
 
 # 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate zh $ROOTPATH
+# 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
 
 # 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate en $ROOTPATH
@@ -153,6 +154,7 @@ conda activate mlcmr
 
 # 训练 不平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics unparallel human_label zh $ROOTPATH
+# 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
 
 # 训练 不平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics unparallel human_label en $ROOTPATH
@@ -169,7 +171,7 @@ conda activate mlcmr
 
 ## 使用MSRVTT训练MLCMR
 
-由于MSRVTT不具备多语言特性，因此仅验证起伪平行多语言场景下的性能
+由于MSRVTT不具备多语言特性，因此仅验证伪平行多语言场景下的性能
 
 ### 伪平行多语言场景
 
@@ -185,6 +187,7 @@ conda activate mlcmr
 # 例子:
 # 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate zh $ROOTPATH
+# 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
 
 # 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate en $ROOTPATH

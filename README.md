@@ -8,15 +8,14 @@
 
 - [环境](#环境)
 - [数据准备](#数据准备)
-- [MLCMR on VATEX](#MLCMR-on-VATEX)
+- [使用VATEX训练MLCMR](#使用VATEX训练MLCMR)
   - [Model Training and Evaluation](#model-training-and-evaluation)
   - [Evaluation using Provided Checkpoints](#Evaluation-using-Provided-Checkpoints)
   - [Expected Performance](#Expected-Performance)
-- [MLCMR on MSRVTT](#NRCCR-on-MSRVTT10K-CN)
+- [使用MSRVTT训练MLCMR](#使用MSRVTT训练MLCMR)
   - [Model Training and Evaluation](#model-training-and-evaluation-1)
   - [Evaluation using Provided Checkpoints](#Evaluation-using-Provided-Checkpoints-1)
   - [Expected Performance](#Expected-Performance-1)
-- [Reference](#Reference)
 
 ## 环境
 
@@ -156,16 +155,3 @@ tar zxf $ROOTPATH/<best_model>.pth.tar -C $ROOTPATH
 | R@1   | R@5                     | R@10                    | MedR |
 | en2cn | 28.9                    | 56.3                    | 67.3 |
 
-
-## Reference
-
-If you find the package useful, please consider citing our paper:
-
-```
-@inproceedings{wang2022cross,
-  title={Cross-Lingual Cross-Modal Retrieval with Noise-Robust Learning},
-  author={Yabing Wang and Jianfeng Dong and Tianxiang Liang and Minsong Zhang and Rui Cai and Xun Wang},
-  journal={In Proceedings of the 30th ACM international conference on Multimedia},
-  year={2022}
-}
-```

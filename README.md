@@ -2,7 +2,7 @@
 
 多语言文本-视频跨模态检索的新基线模型论文源代码
 
-![image-20230731200910462](C:\Users\PC\AppData\Roaming\Typora\typora-user-images\image-20230731200910462.png)
+![framework](framework.png)
 
 ## Table of Contents
 

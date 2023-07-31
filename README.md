@@ -97,21 +97,39 @@ ROOTPATH=$HOME/VisualSearch
 conda activate mlcmr
 
 # 例子:
-# 训练 平行多语言 MLCMR 以验证中文性能 
+# 使用 VATEX 训练 平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics parallel human_label zh $ROOTPATH
 # 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
 
-# 训练 平行多语言 MLCMR 以验证英文性能 
+# 使用 VATEX 训练 平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics parallel human_label en $ROOTPATH
 
 ```
 
 #### 预期表现
 
-| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
-| ----- | ----------------------- | ----------------------- | ---- |
-| R@1   | R@5                     | R@10                    | MedR |
-| en2cn | 30.8                    | 64.4                    | 74.6 |
+参考论文中做出的实验，VATEX上平行多语言场景下的MLCMR预期性能如下：
+
+<table>
+    <tr>
+        <th rowspan='2'>Split</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+    </tr>
+    <tr>
+        <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th>
+    </tr>
+    <tr>  
+    	<td>Parllel_VATEX_Chinese</td>
+		<td>36.3</td><td>71.3</td><td>81.2</td><td>2.0</td><td>51.69</td> 
+    	<td>49.9</td><td>79.8</td><td>88.2</td><td>2.0</td><td>39.26</td> 
+    	<td>406.6</td> 
+    </tr>
+    <tr>  
+    	<td>Parllel_VATEX_English</td>
+		<td>38.2</td><td>74.8</td><td>83.9</td><td>/</td><td>/</td> 
+    	<td>50.3</td><td>78.0</td><td>86.3</td><td>/</td><td>/</td> 
+    	<td>411.4</td> 
+    </tr>
+</table>
 
 
 ### 伪平行多语言场景
@@ -125,11 +143,11 @@ ROOTPATH=$HOME/VisualSearch
 
 conda activate mlcmr
 
-# 训练 伪平行多语言 MLCMR 以验证中文性能 
+# 使用 VATEX 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate zh $ROOTPATH
 # 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
 
-# 训练 伪平行多语言 MLCMR 以验证英文性能 
+# 使用 VATEX 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate en $ROOTPATH
 ```
 
@@ -152,11 +170,11 @@ ROOTPATH=$HOME/VisualSearch
 
 conda activate mlcmr
 
-# 训练 不平行多语言 MLCMR 以验证中文性能 
+# 使用 VATEX 训练 不平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics unparallel human_label zh $ROOTPATH
 # 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
 
-# 训练 不平行多语言 MLCMR 以验证英文性能 
+# 使用 VATEX 训练 不平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics unparallel human_label en $ROOTPATH
 ```
 
@@ -185,11 +203,11 @@ ROOTPATH=$HOME/VisualSearch
 conda activate mlcmr
 
 # 例子:
-# 训练 伪平行多语言 MLCMR 以验证中文性能 
+# 使用 MSRVTT 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate zh $ROOTPATH
 # 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
 
-# 训练 伪平行多语言 MLCMR 以验证英文性能 
+# 使用 MSRVTT 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate en $ROOTPATH
 
 ```

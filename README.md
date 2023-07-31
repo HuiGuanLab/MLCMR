@@ -63,8 +63,8 @@ Validation set and test set:
 ROOTPATH=$HOME/VisualSearch
 mkdir -p $ROOTPATH && cd $ROOTPATH
 
-Organize these files like this:
-# download the data of VATEX[English, Chinese]
+请组织这些文件成下面的形式:
+# 下载VATEX数据[英语, 中文]
 VisualSearch/VATEX/
 	FeatureData/
 		i3d_kinetics/
@@ -75,8 +75,8 @@ VisualSearch/VATEX/
 	TextData/
 		xx.txt
 
-# download the data of MSR-VTT-CN[English, Chinese]
-VisualSearch/msrvttcn/
+# 下载MSR-VTT数据[英语, 中文]
+VisualSearch/msrvtt/
 	FeatureData/
 		resnext101-resnet152/
 			feature.bin
@@ -86,38 +86,6 @@ VisualSearch/msrvttcn/
 	TextData/
 		xx.txt
 
-# download the data of Multi-30K[Englich, German, French, Czech]
-# For Task2, the training set was translated from Flickr30K, which contains five captions per image, while for task1, each image corresponds to one caption.
-# The validation and test set on French and Czech are same in both tasks.
-VisualSearch/multi30k/
-	FeatureData/
-		train_id.txt
-		val_id.txt
-		test_id_2016.txt
-
-	resnet_152[optional]/
-		train-resnet_152-avgpool.npy
-		val-resnet_152-avgpool.npy
-		test_2016_flickr-resnet_152-avgpool.npy	
-	TextData/
-		xx.txt	
-	flickr30k-images/
-		xx.jpg
-
-# download the data of MSCOCO[English, Chinese, Japanese]
-VisualSearch/mscoco/
-	FeatureData/
-		train_id.txt
-		ja_val_id.txt
-		zh_val_id.txt
-		ja_test_id.txt
-		zh_test_id.txt
-	TextData/
-		xx.txt
-	all_pics/
-		xx.jpg
-		
-	image_ids.txt
 ```
 
 ## MLCMR on VATEX

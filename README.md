@@ -112,7 +112,7 @@ conda activate mlcmr
 
 <table>
     <tr>
-        <th rowspan='2'>Split</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+        <th rowspan='2'>Dateset</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
     </tr>
     <tr>
         <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th>
@@ -154,10 +154,28 @@ conda activate mlcmr
 
 #### 预期表现
 
-| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
-| ----- | ----------------------- | ----------------------- | ---- |
-| R@1   | R@5                     | R@10                    | MedR |
-| en2cn | 28.9                    | 56.3                    | 67.3 |
+参考论文中做出的实验，VATEX上伪平行多语言场景下的MLCMR预期性能如下：
+
+<table>
+    <tr>
+        <th rowspan='2'>Dataset</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+    </tr>
+    <tr>
+        <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th>
+    </tr>
+    <tr> 
+    	<td>Parllel_VATEX_Translate_Chinese</td>
+		<td>33.1</td><td>67.1</td><td>77.1</td><td>3.0</td><td>48.18</td> 
+    	<td>46.7</td><td>76.6</td><td>85.9</td><td>2.0</td><td>35.40</td> 
+    	<td>386.5</td> 
+    </tr>
+    <tr>  
+    	<td>Parllel_VATEX_Translate_English</td>
+		<td>38.3</td><td>74.0</td><td>82.9</td><td>/</td><td>/</td> 
+    	<td>50.2</td><td>78.5</td><td>86.7</td><td>/</td><td>/</td> 
+    	<td>410.7</td> 
+    </tr>
+</table>
 
 ### 不平行多语言场景
 
@@ -181,10 +199,29 @@ conda activate mlcmr
 
 #### 预期表现
 
-| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
-| ----- | ----------------------- | ----------------------- | ---- |
-| R@1   | R@5                     | R@10                    | MedR |
-| en2cn | 28.9                    | 56.3                    | 67.3 |
+参考论文中做出的实验，VATEX上不平行多语言场景下的MLCMR预期性能如下：
+
+<table>
+    <tr>
+        <th rowspan='2'>Dataset</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+    </tr>
+    <tr>
+        <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> 
+    </tr>
+    <tr> 
+    	<td>Unparllel_VATEX_Chinese</td>
+		<td>31.6</td><td>64.7</td><td>76.0</td>
+    	<td>44.9</td><td>75.5</td><td>84.5</td>
+    	<td>377.1</td> 
+    </tr>
+    <tr>  
+    	<td>Unparllel_VATEX_English</td>
+		<td>32.8</td><td>66.7</td><td>77.4</td>
+    	<td>44.5</td><td>74.4</td><td>84.3</td>
+    	<td>380.1</td> 
+    </tr>
+</table>
+
 
 
 ## 使用MSRVTT训练MLCMR
@@ -214,7 +251,25 @@ conda activate mlcmr
 
 #### 预期表现
 
-| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
-| ----- | ----------------------- | ----------------------- | ---- |
-| R@1   | R@5                     | R@10                    | MedR |
-| en2cn | 28.9                    | 56.3                    | 67.3 |
+参考论文中做出的实验，MSRVTT上伪平行多语言场景下的MLCMR预期性能如下：
+
+<table>
+    <tr>
+        <th rowspan='2'>Dataset</th><th colspan='5'>Text-to-Video Retrieval</th> <th colspan='5'>Video-to-Text Retrieval</th>  <th rowspan='2'>SumR</th>
+    </tr>
+    <tr>
+        <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th> <th> R@1 </th> <th> R@5 </th> <th> R@10 </th> <th> MedR </th> <th>	mAP </th>
+    </tr>
+    <tr> 
+    	<td>Parllel_MSRVTT_Translate_Chinese</td>
+		<td>30.5</td><td>55.1</td><td>67.3</td><td>4.0</td><td>42.34</td> 
+    	<td>30.3</td><td>56.9</td><td>68.1</td><td>4.0</td><td>42.64</td> 
+    	<td>308.2</td> 
+    </tr>
+    <tr>  
+    	<td>Parllel_MSRVTT_Translate_English</td>
+		<td>23.7</td><td>49.4</td><td>61.6</td><td>6.0</td><td>35.79</td> 
+    	<td>23.0</td><td>50.1</td><td>62.1</td><td>5.0</td><td>36.07</td> 
+    	<td>269.9</td> 
+    </tr>
+</table>

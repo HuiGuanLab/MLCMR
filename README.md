@@ -24,20 +24,20 @@
 - Python 3.8
 - PyTorch 1.5.1
 
-We used Anaconda to setup a deep learning workspace that supports PyTorch. Run the following script to install the required packages.
+我们使用Anaconda设置了一个支持PyTorch的深度学习工作区，请运行以下脚本以安装所需的程序包。
 
 ```shell
 conda create --name mlcmr python=3.8
 conda activate mlcmr
 git clone https://github.com/LiJiaBei-7/nrccr.git
-cd nrccr
+cd mlcmr
 pip install -r requirements.txt
 conda deactivate
 ```
 
 ## 数据准备
 
-We use TWO public datasets: VATEX, MSR-VTT. The extracted feature is placed  in `$HOME/VisualSearch/`.
+我们使用两种公开数据集: VATEX, MSR-VTT. 预训练提取的特征请放置在  `$HOME/VisualSearch/`.
 
 For Multi-30K, we have provided translation version (from Google Translate) of Task1 and Task2, respectively.  [Task1: Applied to translation tasks. Task2: Applied to captioning tasks.].
 

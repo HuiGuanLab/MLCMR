@@ -35,7 +35,7 @@ pip install -r requirements.txt
 conda deactivate
 ```
 
-## Required Data
+## 数据准备
 
 We use TWO public datasets: VATEX, MSR-VTT. The extracted feature is placed  in `$HOME/VisualSearch/`.
 

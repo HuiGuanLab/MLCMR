@@ -106,7 +106,7 @@ conda activate mlcmr
 
 ```
 
-#### 预期性能
+#### 预期表现
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |
@@ -134,7 +134,7 @@ conda activate mlcmr
 ```
 
 
-#### 预期性能
+#### 预期表现
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |
@@ -161,7 +161,7 @@ conda activate mlcmr
 ```
 
 
-#### 预期性能
+#### 预期表现
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |
@@ -194,7 +194,7 @@ conda activate mlcmr
 
 ```
 
-#### 预期性能
+#### 预期表现
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |

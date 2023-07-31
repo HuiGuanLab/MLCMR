@@ -96,27 +96,17 @@ ROOTPATH=$HOME/VisualSearch
 
 conda activate mlcmr
 
-# Example:
-# Train NRCCR 
-./do_all_vatex.sh $ROOTPATH 0
+# 例子:
+# 训练 平行多语言 MLCMR 以验证中文性能 
+./do_all.sh vatex i3d_kinetics parallel human_label zh $ROOTPATH
+# 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
+
+# 训练 平行多语言 MLCMR 以验证英文性能 
+./do_all.sh vatex i3d_kinetics parallel human_label en $ROOTPATH
+
 ```
 
-`<gpu-id>` is the index of the GPU where we train on.
-
-### Evaluation using Provided Checkpoints
-
-Download trained checkpoint on VATEX from Baidu pan ([url](https://pan.baidu.com/s/1QPPBZq_fN8D4tnf_dhfQKA),  pwd:ise6) and run the following script to evaluate it.
-
-```shell
-ROOTPATH=$HOME/VisualSearch/
-
-tar zxf $ROOTPATH/<best_model>.pth.tar -C $ROOTPATH
-
-./do_test_vatex.sh $ROOTPATH $MODELDIR <gpu-id>
-# $MODELDIR is the path of checkpoints, $ROOTPATH/.../runs_0
-```
-
-### Expected Performance
+#### 预期性能
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |
@@ -124,38 +114,86 @@ tar zxf $ROOTPATH/<best_model>.pth.tar -C $ROOTPATH
 | en2cn | 30.8                    | 64.4                    | 74.6 |
 
 
-## MLCMR on MSR-VTT
+### 伪平行多语言场景
 
-### Model Training and Evaluation
+#### 模型训练与评估
 
-Run the following script to train and evaluate `NRCCR` network on MSR-VTT-CN.
+运行以下脚本来训练和评估伪平行多语言场景下“MLCMR”网络。
 
 ```shell
 ROOTPATH=$HOME/VisualSearch
 
-conda activate nrccr_env
+conda activate mlcmr
 
-# To train the model on the VATEX
-./do_all_msrvttcn.sh $ROOTPATH <gpu-id>
+# 训练 伪平行多语言 MLCMR 以验证中文性能 
+./do_all.sh vatex i3d_kinetics parallel translate zh $ROOTPATH
+
+# 训练 伪平行多语言 MLCMR 以验证英文性能 
+./do_all.sh vatex i3d_kinetics parallel translate en $ROOTPATH
 ```
 
-### Evaluation using Provided Checkpoints
 
-Download trained checkpoint on MSR-VTT-CN from Baidu pan ([url](https://pan.baidu.com/s/1QPPBZq_fN8D4tnf_dhfQKA),  pwd:ise6) and run the following script to evaluate it.
-
-```shell
-ROOTPATH=$HOME/VisualSearch/
-
-tar zxf $ROOTPATH/<best_model>.pth.tar -C $ROOTPATH
-
-./do_test_msrvttcn.sh $ROOTPATH $MODELDIR <gpu-id>
-# $MODELDIR is the path of checkpoints, $ROOTPATH/.../runs_0
-```
-
-### Expected Performance
+#### 预期性能
 
 | Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
 | ----- | ----------------------- | ----------------------- | ---- |
 | R@1   | R@5                     | R@10                    | MedR |
 | en2cn | 28.9                    | 56.3                    | 67.3 |
 
+### 不平行多语言场景
+
+#### 模型训练与评估
+
+运行以下脚本来训练和评估不平行多语言场景下“MLCMR”网络。
+
+```shell
+ROOTPATH=$HOME/VisualSearch
+
+conda activate mlcmr
+
+# 训练 不平行多语言 MLCMR 以验证中文性能 
+./do_all.sh vatex i3d_kinetics unparallel human_label zh $ROOTPATH
+
+# 训练 不平行多语言 MLCMR 以验证英文性能 
+./do_all.sh vatex i3d_kinetics unparallel human_label en $ROOTPATH
+```
+
+
+#### 预期性能
+
+| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
+| ----- | ----------------------- | ----------------------- | ---- |
+| R@1   | R@5                     | R@10                    | MedR |
+| en2cn | 28.9                    | 56.3                    | 67.3 |
+
+
+## 使用MSRVTT训练MLCMR
+
+由于MSRVTT不具备多语言特性，因此仅验证起伪平行多语言场景下的性能
+
+### 伪平行多语言场景
+
+#### 模型训练与评估
+
+运行以下脚本来训练和评估“MLCMR”网络。
+
+```shell
+ROOTPATH=$HOME/VisualSearch
+
+conda activate mlcmr
+
+# 例子:
+# 训练 伪平行多语言 MLCMR 以验证中文性能 
+./do_all.sh msrvtt10k resnext101-resnet152 parallel translate zh $ROOTPATH
+
+# 训练 伪平行多语言 MLCMR 以验证英文性能 
+./do_all.sh msrvtt10k resnext101-resnet152 parallel translate en $ROOTPATH
+
+```
+
+#### 预期性能
+
+| Type  | Text-to-Video Retrieval | Video-to-Text Retrieval | SumR |
+| ----- | ----------------------- | ----------------------- | ---- |
+| R@1   | R@5                     | R@10                    | MedR |
+| en2cn | 28.9                    | 56.3                    | 67.3 |

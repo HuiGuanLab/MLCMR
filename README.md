@@ -28,7 +28,7 @@
 ```shell
 conda create --name mlcmr python=3.8
 conda activate mlcmr
-git clone https://github.com/LiJiaBei-7/nrccr.git
+git clone https://github.com/HuiGuanLab/MLCMR.git
 cd mlcmr
 pip install -r requirements.txt
 conda deactivate

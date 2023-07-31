@@ -9,13 +9,19 @@
 - [环境](#环境)
 - [数据准备](#数据准备)
 - [使用VATEX训练MLCMR](#使用VATEX训练MLCMR)
-  - [Model Training and Evaluation](#model-training-and-evaluation)
-  - [Evaluation using Provided Checkpoints](#Evaluation-using-Provided-Checkpoints)
-  - [Expected Performance](#Expected-Performance)
+  - [平行多语言场景](#平行多语言场景)
+    - [模型训练与评估](#模型训练与评估)
+    - [预期表现](#预期表现)
+  - [伪平行多语言场景](#伪平行多语言场景)
+    - [模型训练与评估](#模型训练与评估-1)
+    - [预期表现](#预期表现-1)
+  - [不平行多语言场景](#不平行多语言场景)
+    - [模型训练与评估](#模型训练与评估-2)
+    - [预期表现](#预期表现-2)
 - [使用MSRVTT训练MLCMR](#使用MSRVTT训练MLCMR)
-  - [Model Training and Evaluation](#model-training-and-evaluation-1)
-  - [Evaluation using Provided Checkpoints](#Evaluation-using-Provided-Checkpoints-1)
-  - [Expected Performance](#Expected-Performance-1)
+  - [伪平行多语言场景](#伪平行多语言场景)
+    - [模型训练与评估](#模型训练与评估-3)
+    - [预期表现](#预期表现-3)
 
 ## 环境
 
@@ -38,7 +44,7 @@ conda deactivate
 
 我们使用两种公开数据集: VATEX, MSR-VTT. 预训练提取的特征请放置在  `$HOME/VisualSearch/`.
 
-我们已经在项目文件的 `VisualSearch/` 里准备好了所有所需训练文本文件
+我们已经在项目文件的 `VisualSearch` 里准备好了所有的训练文本文件
 
 对应的视频特征可通过下方获取
 
@@ -77,20 +83,18 @@ VisualSearch/msrvtt/
 
 ```
 
-## MLCMR on VATEX
+## 使用VATEX训练MLCMR
 
-### Model Training and Evaluation
+### 平行多语言场景
 
-Run the following script to train and evaluate `NRCCR` network. Specifically, it will train `NRCCR` network and select a checkpoint that performs best on the validation set as the final model. Notice that we only save the best-performing checkpoint on the validation set to save disk space.
+#### 模型训练与评估
+
+运行以下脚本来训练和评估“MLCMR”网络。具体而言，它将训练“MLCMR”网络，并选择在验证集上表现最好的检查点作为最终模型。请注意，我们只在验证集上保存性能最好的检查点，以节省磁盘空间。
 
 ```shell
 ROOTPATH=$HOME/VisualSearch
 
-conda activate nrccr_env
-
-# To train the model on the MSR-VTT, which the feature is resnext-101_resnet152-13k 
-# Template:
-./do_all_vatex.sh $ROOTPATH <gpu-id>
+conda activate mlcmr
 
 # Example:
 # Train NRCCR 

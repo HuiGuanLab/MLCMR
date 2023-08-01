@@ -162,7 +162,10 @@ conda activate mlcmr
 
 # 使用 VATEX 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate zh $ROOTPATH
-# 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
+# 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
+
+
+# 请注意，下面这个方式将以中文翻译的英语文本进行训练，与论文中的实验无关，为了便于比较，论文中的英语性能是使用原始英语，即上面的训练方式直接验证英语性能得出的
 
 # 使用 VATEX 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate en $ROOTPATH
@@ -261,8 +264,6 @@ conda activate mlcmr
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate zh $ROOTPATH
 # 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
 
-# 使用 MSRVTT 训练 伪平行多语言 MLCMR 以验证英文性能 
-./do_all.sh msrvtt10k resnext101-resnet152 parallel translate en $ROOTPATH
 
 ```
 

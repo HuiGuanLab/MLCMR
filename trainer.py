@@ -76,7 +76,7 @@ def parse_args():
     parser.add_argument('--workers', type=int, default=5, help='Number of data loader workers.')
     parser.add_argument('--postfix', type=str, default='runs_0', help='Path to save the model and Tensorboard log.')
     parser.add_argument('--log_step', type=int, default=10, help='Number of steps to print and record the log.')
-    parser.add_argument('--cv_name', type=str, default='mlcmr', help='log_name')
+    parser.add_argument('--cv_name', type=str, default='mlcmr_translate_vatex_zh', help='log_name')
     # text
     parser.add_argument('--text_num_attention', type=int, default=8)
     parser.add_argument('--text_hidden_size', type=int, default=768)

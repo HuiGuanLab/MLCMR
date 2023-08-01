@@ -287,6 +287,6 @@ conda activate mlcmr
     	<td>Parllel_MSRVTT_Translate_English</td>
 		<td>26.9</td><td>55.3</td><td>67.7</td><td>4.0</td><td>40.20</td> 
     	<td>29.8</td><td>55.7</td><td>67.7</td><td>5.0</td><td>42.16</td> 
-    	<td>269.9</td> 
+    	<td>303.1</td> 
     </tr>
 </table>

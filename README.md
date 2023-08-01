@@ -35,7 +35,7 @@
 conda create --name mlcmr python=3.8
 conda activate mlcmr
 git clone https://github.com/HuiGuanLab/MLCMR.git
-cd mlcmr
+cd MLCMR
 pip install -r requirements.txt
 conda deactivate
 ```
@@ -60,7 +60,7 @@ mkdir -p $ROOTPATH && cd $ROOTPATH
 
 请组织这些文件成下面的形式:
 # 下载VATEX数据[英语, 中文]
-VisualSearch/VATEX/
+VisualSearch/vatex/
 	FeatureData/
 		i3d_kinetics/
 			feature.bin
@@ -71,7 +71,7 @@ VisualSearch/VATEX/
 		xx.txt
 
 # 下载MSR-VTT数据[英语, 中文]
-VisualSearch/msrvtt10K/
+VisualSearch/msrvtt10kyu/
 	FeatureData/
 		resnext101-resnet152/
 			feature.bin

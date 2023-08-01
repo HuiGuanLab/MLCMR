@@ -106,7 +106,7 @@ def main():
     # set data loader
     video_ids_list = data.read_video_ids(caption_files_en['test'])
     vid_data_loader = data.get_vis_data_loader(visual_feats['test'], opt.batch_size, opt.workers, video2frames['test'], video_ids=video_ids_list)
-    text_data_loader = data.get_txt_data_loader(options,caption_files_en['test'],caption_files_zh['test'], opt.batch_size, opt.workers)
+    text_data_loader = data.get_txt_data_loader(opt,caption_files_en['test'],caption_files_zh['test'], opt.batch_size, opt.workers)
 
     # mapping
     # if options.space == 'hybrid':
@@ -124,13 +124,16 @@ def main():
     #     tag_vocab_path = os.path.join(rootpath, collections_pathname['train'], 'TextData', 'tags', 'video_label_th_1', 'tag_vocab_%d.json' % options.tag_vocab_size)
     #     evaluation.pred_tag(video_tag_probs, video_ids, tag_vocab_path, os.path.join(output_dir, 'video'))
     #     evaluation.pred_tag(cap_tag_probs, caption_ids, tag_vocab_path, os.path.join(output_dir, 'text'))
-    if opt.label_situation == "human_label":
-        weight=0.85
-        t2v_all_errors_1 = evaluation.cal_error_test(opt,video_embs, cap_embs_en,cap_embs_zh,weight, options.measure)
-    elif opt.label_situation == "translate":
+    if opt.train_mode=="parallel":
+        if opt.label_situation == "human_label":
+            weight=0.85
+            t2v_all_errors_1 = evaluation.cal_error_test(opt,video_embs, cap_embs_en,cap_embs_zh,weight, options.measure)
+        elif opt.label_situation == "translate":
+            weight=0.55
+            t2v_all_errors_1 = evaluation.cal_error_test(opt,video_embs, cap_embs_en,cap_embs_zh,weight, options.measure)
+    elif opt.train_mode=="unparallel":
         weight=0.55
         t2v_all_errors_1 = evaluation.cal_error_test(opt,video_embs, cap_embs_en,cap_embs_zh,weight, options.measure)
-    
 
 
     # if options.space in ['concept', 'hybrid']:

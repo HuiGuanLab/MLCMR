@@ -84,7 +84,7 @@ def parse_args():
     parser.add_argument('--text_layer', type=int, default=1)
     parser.add_argument('--layer_list', type=str, help='fine-tune_layer_list')
     # mode
-    parser.add_argument('--train_mode', type=str, default='unparallel',help='training data properties (unparallel|parallel)')
+    parser.add_argument('--train_mode', type=str, default='parallel',help='training data properties (unparallel|parallel)')
     parser.add_argument('--label_situation', type=str, default='human_label',help='training data properties (translate|human_label)')
     parser.add_argument('--train_test', type=str, default='train',help='in trainning or testing')
     parser.add_argument('--target_language', type=str, default='zh',help='language to search (en|zh)')
@@ -99,10 +99,15 @@ def main():
     opt = parse_args()
     rootpath = opt.rootpath
     collection = opt.collection
-    opt.val_en_Collection = '%sval' % collection
-    opt.val_zh_Collection = '%sval_zh' % collection
     opt.test_en_Collection = '%stest' % collection
     opt.test_zh_Collection = '%stest_zh' % collection
+
+    if collection=="msrvtt10kyu":
+        opt.val_en_Collection = '%stest' % collection
+        opt.val_zh_Collection = '%stest_zh' % collection
+    elif collection=="vatex":
+        opt.val_en_Collection = '%sval' % collection
+        opt.val_zh_Collection = '%sval_zh' % collection        
     
     if opt.train_mode=='parallel':
         if opt.label_situation=='human_label':
@@ -307,6 +312,9 @@ def main():
     striptStr = striptStr.replace('@@@testCollection@@@', collections_pathname['test'])
     striptStr = striptStr.replace('@@@logger_name@@@', opt.logger_name)
     striptStr = striptStr.replace('@@@overwrite@@@', str(opt.overwrite))
+    striptStr = striptStr.replace('@@@train_mode@@@', opt.train_mode)
+    striptStr = striptStr.replace('@@@label_situation@@@', opt.label_situation)
+    striptStr = striptStr.replace('@@@target_language@@@', opt.target_language)
 
     # perform evaluation on test set
     runfile = 'do_test_%s_%s.sh' % (opt.model, collections_pathname['test'])

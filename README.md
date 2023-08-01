@@ -46,6 +46,8 @@ conda deactivate
 
 我们已经在项目文件的 `VisualSearch` 里准备好了所需的文本文件
 
+其中,带有_google_aa2bb的文本文件表示由原始人工标注的aa语言通过谷歌翻译至bb语言得到，其余均为原始人工标注语言
+
 对应的视频特征可通过下方获取
 
 | Dataset    | feature                                                      |

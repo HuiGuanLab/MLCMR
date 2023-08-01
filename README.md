@@ -259,7 +259,7 @@ conda activate mlcmr
 # 例子:
 # 使用 MSRVTT 训练 伪平行多语言 MLCMR 以验证中文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate zh $ROOTPATH
-# 请注意，这里不能通过修改对应的do_testxxx.py文件验证对应的英文性能，因为两者的训练数据是不同的
+# 可以通过修改训练完毕后产生的do_testxxx.py的target_language参数为en，直接验证对应的英语性能
 
 # 使用 MSRVTT 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh msrvtt10k resnext101-resnet152 parallel translate en $ROOTPATH
@@ -279,14 +279,14 @@ conda activate mlcmr
     </tr>
     <tr> 
     	<td>Parllel_MSRVTT_Translate_Chinese</td>
-		<td>30.5</td><td>55.1</td><td>67.3</td><td>4.0</td><td>42.34</td> 
-    	<td>30.3</td><td>56.9</td><td>68.1</td><td>4.0</td><td>42.64</td> 
-    	<td>308.2</td> 
+		<td>28.9</td><td>55.5</td><td>69.2</td><td>4.0</td><td>41.54</td> 
+    	<td>30.4</td><td>57.8</td><td>69.7</td><td>4.0</td><td>43.07</td> 
+    	<td>311.5</td> 
     </tr>
     <tr>  
     	<td>Parllel_MSRVTT_Translate_English</td>
-		<td>23.7</td><td>49.4</td><td>61.6</td><td>6.0</td><td>35.79</td> 
-    	<td>23.0</td><td>50.1</td><td>62.1</td><td>5.0</td><td>36.07</td> 
+		<td>26.9</td><td>55.3</td><td>67.7</td><td>4.0</td><td>40.20</td> 
+    	<td>29.8</td><td>55.7</td><td>67.7</td><td>5.0</td><td>42.16</td> 
     	<td>269.9</td> 
     </tr>
 </table>

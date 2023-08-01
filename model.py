@@ -6,7 +6,6 @@ from torch.autograd import Variable
 import torch.backends.cudnn as cudnn
 from torch.nn.utils.clip_grad import clip_grad_norm_
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
-from transformer_ori import BertAttention, TrainablePositionalEncoding, LinearLayer
 from transformers import BertModel
 # from ptflops import get_model_complexity_info
 import numpy as np

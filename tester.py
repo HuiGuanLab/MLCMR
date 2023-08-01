@@ -61,16 +61,17 @@ def main():
     options = checkpoint['opt']
     
     # collection setting
+
+
     testCollection = opt.testCollection
     collections_pathname = options.collections_pathname
-    collections_pathname['test'] = "vatex"
+    collections_pathname['test'] = opt.testCollection
     #trainCollection = options.trainCollection
-    output_dir = resume.replace("vatextrain", "vatex")
-    # output_dir = output_dir.replace("vatextrain_zh", "vatex")
+    output_dir = resume.replace(opt.testCollection+"train", opt.testCollection)
     if 'checkpoints' in output_dir:
         output_dir = output_dir.replace('/checkpoints/', '/results/')
     else:
-        output_dir = output_dir.replace('/%s/' % options.cv_name, '/results/%s/%s/' % (options.cv_name, "vatex"))
+        output_dir = output_dir.replace('/%s/' % options.cv_name, '/results/%s/%s/' % (options.cv_name, opt.testCollection))
     result_pred_sents = os.path.join(output_dir, 'id.sent.score.txt')
     pred_error_matrix_file = os.path.join(output_dir, 'pred_errors_matrix.pth.tar')
     if checkToSkip(pred_error_matrix_file, opt.overwrite):

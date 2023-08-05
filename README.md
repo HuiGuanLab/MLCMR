@@ -330,12 +330,12 @@ conda activate mlcmr
 
 ```shell
 ROOTPATH=$HOME/VisualSearch/
-#将mlcmr_translate_msrvtt10kyu/model_best.pth.tar移动至ROOTPATH/msrvtt/mlcmr_translate_msrvtt10kyu/下，没有则创建
+#将mlcmr_translate_msrvtt10kyu/model_best.pth.tar移动至ROOTPATH/msrvtt10kyu/mlcmr_translate_msrvtt10kyu/下，没有则创建
 #在本项目下创建do_test_mlcmr_msrvtt10kyu.sh文件，内容如下：
 #------
 rootpath=<yourROOTPATH>
 testCollection=msrvtt10kyu
-logger_name=<yourROOTPATH>/msrvtt/mlcmr_translate_msrvtt10kyu/
+logger_name=<yourROOTPATH>/msrvtt10kyu/mlcmr_translate_msrvtt10kyu/
 overwrite=0
 train_mode=parallel
 label_situation=translate

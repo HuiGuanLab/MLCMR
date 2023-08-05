@@ -128,12 +128,13 @@ conda activate mlcmr
 
 #### 使用提供的检查点评估
 
-所有的检查点，从百度云盘（[url](链接：https://pan.baidu.com/s/1dY2MqZ6bV_3rt2jui36Auw)，密码:4qvt） 下载VATEX上经过训练的检查点，并运行以下脚本对其进行评估。
+所有的检查点，从百度云盘（[url](https://pan.baidu.com/s/1dY2MqZ6bV_3rt2jui36Auw)，密码:4qvt） 下载VATEX上经过训练的检查点，并运行以下脚本对其进行评估。
 
 ```shell
 ROOTPATH=$HOME/VisualSearch/
 #将mlcmr_human_label_vatex/model_best.pth.tar移动至ROOTPATH/vatex/mlcmr_human_label_vatex/下，没有则创建
 #在本项目下创建do_test_mlcmr_vatex.sh文件，内容如下：
+#------
 rootpath=<yourROOTPATH>
 testCollection=vatex
 logger_name=<yourROOTPATH>/vatex/mlcmr_human_label_vatex
@@ -142,14 +143,13 @@ train_mode=parallel
 label_situation=translate
 target_language=zh #测试英文请改成en
 gpu=0
-
 CUDA_VISIBLE_DEVICES=$gpu python tester.py --testCollection $testCollection --train_mode $train_mode --label_situation $label_situation --target_language $target_language --rootpath $rootpath --overwrite $overwrite --logger_name $logger_name
+#------
 
 #保存后运行do_test_mlcmr_vatex.sh文件
 
 ./do_test_mlcmr_vatex.sh
 
-# $MODELDIR is the path of checkpoints, $ROOTPATH/.../runs_0
 
 ```
 

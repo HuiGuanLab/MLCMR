@@ -140,7 +140,7 @@ testCollection=vatex
 logger_name=<yourROOTPATH>/vatex/mlcmr_human_label_vatex
 overwrite=0
 train_mode=parallel
-label_situation=translate
+label_situation=human_label
 target_language=zh #测试英文请改成en
 gpu=0
 CUDA_VISIBLE_DEVICES=$gpu python tester.py --testCollection $testCollection --train_mode $train_mode --label_situation $label_situation --target_language $target_language --rootpath $rootpath --overwrite $overwrite --logger_name $logger_name
@@ -200,12 +200,38 @@ conda activate mlcmr
 
 # 使用 VATEX 训练 伪平行多语言 MLCMR 以验证英文性能 
 ./do_all.sh vatex i3d_kinetics parallel translate en $ROOTPATH
-```
 
+```
+#### 使用提供的检查点评估
+
+所有的检查点，从百度云盘（[url](https://pan.baidu.com/s/1dY2MqZ6bV_3rt2jui36Auw)，密码:4qvt） 下载VATEX上经过训练的检查点，并运行以下脚本对其进行评估。
+
+```shell
+ROOTPATH=$HOME/VisualSearch/
+#将mlcmr_translate_vatex/model_best.pth.tar移动至ROOTPATH/vatex/mlcmr_translate_vatex/下，没有则创建
+#在本项目下创建do_test_mlcmr_vatex.sh文件，内容如下：
+#------
+rootpath=<yourROOTPATH>
+testCollection=vatex
+logger_name=<yourROOTPATH>/vatex/mlcmr_translate_vatex
+overwrite=0
+train_mode=parallel
+label_situation=translate
+target_language=zh #测试英文请改成en
+gpu=0
+CUDA_VISIBLE_DEVICES=$gpu python tester.py --testCollection $testCollection --train_mode $train_mode --label_situation $label_situation --target_language $target_language --rootpath $rootpath --overwrite $overwrite --logger_name $logger_name
+#------
+
+#保存后运行do_test_mlcmr_vatex.sh文件
+
+./do_test_mlcmr_vatex.sh
+
+
+```
 
 #### 预期表现
 
-参考论文中做出的实验，VATEX上伪平行多语言场景下的MLCMR预期性能如下：
+由于SGD的随机性,本次检查点模型预期性能表现与论文描述稍有不同,预计如下:
 
 <table>
     <tr>
@@ -216,15 +242,15 @@ conda activate mlcmr
     </tr>
     <tr> 
     	<td>Parllel_VATEX_Translate_Chinese</td>
-		<td>33.1</td><td>67.1</td><td>77.1</td><td>3.0</td><td>48.18</td> 
-    	<td>46.7</td><td>76.6</td><td>85.9</td><td>2.0</td><td>35.40</td> 
-    	<td>386.5</td> 
+		<td>32.5</td><td>66.2</td><td>76.7</td><td>3.0</td><td>47.58</td> 
+    	<td>48.1</td><td>75.5</td><td>84.5</td><td>2.0</td><td>34.94</td> 
+    	<td>383.5</td> 
     </tr>
     <tr>  
     	<td>Parllel_VATEX_Translate_English</td>
-		<td>38.3</td><td>74.0</td><td>82.9</td><td>/</td><td>/</td> 
-    	<td>50.2</td><td>78.5</td><td>86.7</td><td>/</td><td>/</td> 
-    	<td>410.7</td> 
+		<td>37.5</td><td>73.7</td><td>82.5</td><td>/</td><td>/</td>
+    	<td>49.4</td><td>78.3</td><td>86.5</td><td>/</td><td>/</td> 
+    	<td>407.9</td> 
     </tr>
 </table>
 
@@ -298,9 +324,36 @@ conda activate mlcmr
 
 ```
 
+#### 使用提供的检查点评估
+
+所有的检查点，从百度云盘（[url](https://pan.baidu.com/s/1dY2MqZ6bV_3rt2jui36Auw)，密码:4qvt） 下载MSRVTT上经过训练的检查点，并运行以下脚本对其进行评估。
+
+```shell
+ROOTPATH=$HOME/VisualSearch/
+#将mlcmr_translate_msrvtt10kyu/model_best.pth.tar移动至ROOTPATH/msrvtt/mlcmr_translate_msrvtt10kyu/下，没有则创建
+#在本项目下创建do_test_mlcmr_msrvtt10kyu.sh文件，内容如下：
+#------
+rootpath=<yourROOTPATH>
+testCollection=msrvtt10kyu
+logger_name=<yourROOTPATH>/msrvtt/mlcmr_translate_msrvtt10kyu/
+overwrite=0
+train_mode=parallel
+label_situation=translate
+target_language=zh #测试英文请改成en
+gpu=0
+CUDA_VISIBLE_DEVICES=$gpu python tester.py --testCollection $testCollection --train_mode $train_mode --label_situation $label_situation --target_language $target_language --rootpath $rootpath --overwrite $overwrite --logger_name $logger_name
+#------
+
+#保存后运行do_test_mlcmr_msrvtt10kyu.sh文件
+
+./do_test_mlcmr_msrvtt10kyu.sh
+
+
+```
+
 #### 预期表现
 
-参考论文中做出的实验，MSRVTT上伪平行多语言场景下的MLCMR预期性能如下：
+检查点性能预计表现如下：
 
 <table>
     <tr>

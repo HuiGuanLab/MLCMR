@@ -1,10 +1,10 @@
 rootpath=../VisualSearch_hybrid/
 testCollection=vatex
-logger_name=../VisualSearch_hybrid/vatex/mlcmr_human_label_vatex_zh
+logger_name=../VisualSearch_hybrid/vatex/mlcmr_translate_vatex_zh
 overwrite=0
 train_mode=parallel
-label_situation=human_label
-target_language=zh
+label_situation=translate
+target_language=en
 
 gpu=0
 

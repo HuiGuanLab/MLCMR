@@ -11,9 +11,11 @@
 - [使用VATEX训练MLCMR](#使用VATEX训练MLCMR)
   - [平行多语言场景](#平行多语言场景)
     - [模型训练与评估](#模型训练与评估)
+    - [使用提供的检查点评估](#使用提供的检查点评估)
     - [预期表现](#预期表现)
   - [伪平行多语言场景](#伪平行多语言场景)
     - [模型训练与评估](#模型训练与评估-1)
+    - [使用提供的检查点评估](#使用提供的检查点评估-2)
     - [预期表现](#预期表现-1)
   - [不平行多语言场景](#不平行多语言场景)
     - [模型训练与评估](#模型训练与评估-2)
@@ -21,6 +23,7 @@
 - [使用MSRVTT训练MLCMR](#使用MSRVTT训练MLCMR)
   - [伪平行多语言场景](#伪平行多语言场景)
     - [模型训练与评估](#模型训练与评估-3)
+    - [使用提供的检查点评估](#使用提供的检查点评估-3)
     - [预期表现](#预期表现-3)
 
 ## 环境
@@ -123,9 +126,37 @@ conda activate mlcmr
 
 ```
 
+#### 使用提供的检查点评估
+
+所有的检查点，从百度云盘（[url](链接：https://pan.baidu.com/s/1dY2MqZ6bV_3rt2jui36Auw)，密码:4qvt） 下载VATEX上经过训练的检查点，并运行以下脚本对其进行评估。
+
+```shell
+ROOTPATH=$HOME/VisualSearch/
+#将mlcmr_human_label_vatex/model_best.pth.tar移动至ROOTPATH/vatex/mlcmr_human_label_vatex/下，没有则创建
+#在本项目下创建do_test_mlcmr_vatex.sh文件，内容如下：
+rootpath=<yourROOTPATH>
+testCollection=vatex
+logger_name=<yourROOTPATH>/vatex/mlcmr_human_label_vatex
+overwrite=0
+train_mode=parallel
+label_situation=translate
+target_language=zh #测试英文请改成en
+gpu=0
+
+CUDA_VISIBLE_DEVICES=$gpu python tester.py --testCollection $testCollection --train_mode $train_mode --label_situation $label_situation --target_language $target_language --rootpath $rootpath --overwrite $overwrite --logger_name $logger_name
+
+#保存后运行do_test_mlcmr_vatex.sh文件
+
+./do_test_mlcmr_vatex.sh
+
+# $MODELDIR is the path of checkpoints, $ROOTPATH/.../runs_0
+
+```
+
+
 #### 预期表现
 
-参考论文中做出的实验，VATEX上平行多语言场景下的MLCMR预期性能如下：
+由于SGD的随机性,本次检查点模型预期性能表现与论文描述稍有不同,预计如下:
 
 <table>
     <tr>
@@ -136,15 +167,15 @@ conda activate mlcmr
     </tr>
     <tr>  
     	<td>Parllel_VATEX_Chinese</td>
-		<td>36.3</td><td>71.3</td><td>81.2</td><td>2.0</td><td>51.69</td> 
-    	<td>49.9</td><td>79.8</td><td>88.2</td><td>2.0</td><td>39.26</td> 
-    	<td>406.6</td> 
+		<td>36.9</td><td>71.3</td><td>80.6</td><td>2.0</td><td>52.13</td>
+    	<td>51.1</td><td>79.1</td><td>86.7</td><td>1.0</td><td>39.05</td> 
+    	<td>405.9</td> 
     </tr>
     <tr>  
     	<td>Parllel_VATEX_English</td>
-		<td>38.2</td><td>74.8</td><td>83.9</td><td>/</td><td>/</td> 
-    	<td>50.3</td><td>78.0</td><td>86.3</td><td>/</td><td>/</td> 
-    	<td>411.4</td> 
+		<td>39.6</td><td>74.4</td><td>83.3</td><td>/</td><td>/</td>
+    	<td>50.1</td><td>78.1</td><td>86.8</td><td>/</td><td>/</td> 
+    	<td>412.3</td> 
     </tr>
 </table>
 

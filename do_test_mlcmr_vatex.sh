@@ -1,8 +1,8 @@
 rootpath=../VisualSearch_hybrid/
 testCollection=vatex
-logger_name=../VisualSearch_hybrid/vatex/mlcmr
+logger_name=../VisualSearch_hybrid/vatex/mlcmr_human_label_vatex_zh
 overwrite=0
-train_mode=unparallel
+train_mode=parallel
 label_situation=human_label
 target_language=zh
 

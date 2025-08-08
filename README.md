@@ -1,6 +1,7 @@
 # 多语言文本-视频跨模态检索的新基线模型
 
 "多语言文本-视频跨模态检索的新基线模型"论文源代码
+
 论文可以在[知网](https://kns.cnki.net/kcms2/article/abstract?v=IKKGlZ0AkeWQSw_kEHf5ApOIQMLy5Qs0oJtvcDO6N3cDYHSF5j-8gMhsp1pakFJGCyct-H9uN8dPaM7dGowd3b8l2kU_mp34CZCbctvDz938Ok8irHMKvm3Fr_JbEbnGbGJtoSeWXk5voe8-IlYxa8wo8qJJ3IcJ9N1iJ78_Y_FjlBfelj1HLw==&uniplatform=NZKPT&language=CHS)阅读
 
 ![framework](framework.png)
